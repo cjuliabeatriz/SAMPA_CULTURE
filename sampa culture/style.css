@@ -1,0 +1,1057 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8f7f3;
+  --paper: #fff;
+  --ink: #24251f;
+  --muted: #8d8f87;
+  --green: #287744;
+  --gold: #e5ad24;
+  --line: #e9e8e1;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px "DM Sans", sans-serif;
+}
+
+body.dark {
+  --bg: #151613;
+  --paper: #20221e;
+  --ink: #f5f1e8;
+  --muted: #aaa99f;
+  --line: #34362f;
+}
+
+.topbar {
+  height: 76px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0 max(calc((100vw - 1320px) / 2), 5.2%);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 2px 14px #00000008;
+}
+
+.brandmark {
+  background: #171914;
+  color: #e5b52c;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.brand {
+  font: 800 23px Georgia;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand span {
+  color: #39814c;
+}
+
+.search {
+  height: 43px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  flex: 1;
+}
+
+.search span {
+  font-size: 25px;
+  color: var(--muted);
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  width: 100%;
+  font: inherit;
+}
+
+.ai-btn {
+  border: 0;
+  border-radius: 13px;
+  background: #f3bd24;
+  padding: 12px 17px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.user-btn,
+.moon {
+  width: 39px;
+  height: 39px;
+  border: 1px solid #e7c96c;
+  border-radius: 50%;
+  background: #fff8df;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.moon {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 23px;
+}
+
+.hero {
+  max-width: 1440px;
+  margin: auto;
+  min-height: 355px;
+  border-radius: 0 0 35px 35px;
+  overflow: hidden;
+  background: linear-gradient(
+      90deg,
+      #f8f7f3 0%,
+      #f8f7f3ed 35%,
+      #f8f7f3a6 68%,
+      #f8f7f330
+    ),
+    url("https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content {
+  padding: 43px 5.2% 25px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b18a2e;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font: 800 clamp(34px, 4.2vw, 58px) / 0.99 "Playfair Display", Georgia;
+  margin: 9px 0 20px;
+  color: #272821;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: #dfa92e;
+}
+
+.hero-sub {
+  line-height: 1.8;
+  color: #85877f;
+}
+
+.quick {
+  display: flex;
+  gap: 10px;
+  margin: 27px 0 0 22%;
+  justify-content: center;
+}
+
+.quick button {
+  border: 0;
+  border-radius: 22px;
+  background: #ffffffed;
+  padding: 11px 16px;
+  color: #777;
+  cursor: pointer;
+}
+
+.content {
+  max-width: 1320px;
+  margin: 25px auto 50px;
+  display: grid;
+  grid-template-columns: 235px 1fr;
+  gap: 28px;
+  padding: 0 16px;
+}
+
+.filters {
+  background: var(--paper);
+  border-radius: 18px;
+  padding: 20px 17px;
+  height: max-content;
+  box-shadow: 0 5px 22px #00000008;
+  position: sticky;
+  top: 90px;
+}
+
+.filter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 23px;
+}
+
+.filter-head b {
+  color: #d5a52c;
+}
+
+.filter-head button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.filter-group {
+  margin: 0 0 23px;
+}
+
+.filter-group h4 {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.7px;
+  margin: 0 0 13px;
+}
+
+.filter-group select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 10px;
+  font: inherit;
+}
+
+.filter-group small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 7px;
+}
+
+.category-list {
+  display: grid;
+  gap: 4px;
+}
+
+.cat {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px;
+  border-radius: 11px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.cat.active {
+  background: var(--green);
+  color: white;
+  font-weight: 700;
+}
+
+.more {
+  border: 0;
+  background: none;
+  color: var(--green);
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.price-head,
+.range-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-head b {
+  font-size: 12px;
+}
+
+.filter-group input[type="range"] {
+  width: 100%;
+  accent-color: #dba51c;
+  margin: 10px 0;
+}
+
+.range-label small {
+  margin: 0;
+}
+
+.toggle-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch i {
+  display: block;
+  width: 36px;
+  height: 21px;
+  background: #bbb;
+  border-radius: 30px;
+  position: relative;
+}
+
+.switch i:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.switch input:checked + i {
+  background: var(--green);
+}
+
+.switch input:checked + i:after {
+  transform: translateX(15px);
+}
+
+.results {
+  min-width: 0;
+}
+
+.results-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0 0 16px;
+}
+
+.results-head h2 {
+  font: 700 21px "Playfair Display", Georgia;
+  margin: 0 0 7px;
+}
+
+.results-head p,
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+.count {
+  font: 500 10px "DM Sans";
+  background: #222;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 9px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.view-toggle {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+}
+
+.view-toggle button {
+  border: 0;
+  background: transparent;
+  padding: 8px 13px;
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.view-toggle button.active {
+  background: #20221f;
+  color: white;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px #0000000a;
+  min-width: 0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #00000012;
+}
+
+.photo {
+  height: 160px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  background: #267943;
+  color: white;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.heart {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: 0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background: #ffffffdf;
+  color: #999;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.heart.saved {
+  color: #d54d55;
+}
+
+.card-body {
+  padding: 14px 13px 15px;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: start;
+}
+
+.card-title h3 {
+  font: 600 15px "Playfair Display", Georgia;
+  margin: 0 0 7px;
+}
+
+.price {
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.card-foot {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.pagination {
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 38px;
+}
+
+.empty {
+  text-align: center;
+  padding: 55px;
+  color: var(--muted);
+  grid-column: 1 / -1;
+}
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #080908bd;
+  backdrop-filter: blur(7px);
+  z-index: 20;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-backdrop.show {
+  display: grid;
+}
+
+.detail-modal {
+  width: min(720px, 96vw);
+  max-height: 88vh;
+  overflow: auto;
+  background: #10110f;
+  color: #f5f2e9;
+  border-radius: 23px;
+  position: relative;
+  box-shadow: 0 25px 90px #0008;
+}
+
+.detail-modal .close,
+.route-modal .close,
+.modal .close {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  z-index: 3;
+  border: 0;
+  background: #ffffffdf;
+  color: #333;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.detail-image {
+  height: 270px;
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-body {
+  padding: 26px 32px 30px;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.detail-cat {
+  color: #e16e57;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.detail-body h2 {
+  font: 700 32px "Playfair Display";
+  margin: 8px 0;
+}
+
+.detail-location {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.detail-price {
+  background: #f7e8df;
+  color: #6b493c;
+  border-radius: 30px;
+  padding: 12px 18px;
+  height: max-content;
+  font-weight: 700;
+  min-width: 120px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #f8f8f7;
+  color: #777;
+  border-radius: 18px;
+  margin: 25px 0;
+  padding: 18px 5px;
+  text-align: center;
+}
+
+.stats div + div {
+  border-left: 1px solid #ddd;
+}
+
+.stats b {
+  display: block;
+  color: #d66c53;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.stats span {
+  font-size: 11px;
+}
+
+.detail-desc {
+  color: #b8b9b5;
+  line-height: 1.7;
+}
+
+.impact {
+  border: 1px solid #93776d;
+  border-radius: 16px;
+  padding: 17px;
+  margin: 20px 0;
+  color: #b6b8b4;
+}
+
+.impact b {
+  color: #d16a5a;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0 25px;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  background: #292a30;
+  color: #b7b8c1;
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 11px;
+}
+
+.detail-actions {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.primary,
+.secondary,
+.save-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary {
+  background: #edb51f;
+  color: #29251a;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #494a4d;
+  color: inherit;
+}
+
+.save-btn {
+  background: #25262b;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+.save-btn.saved {
+  color: #ff7b83;
+  border-color: #b94f59;
+}
+
+.route-modal {
+  width: min(1120px, 96vw);
+  height: min(680px, 90vh);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: var(--paper);
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.route-map {
+  min-height: 400px;
+  background: #e4e6df;
+}
+
+.route-panel {
+  padding: 38px 30px;
+  overflow: auto;
+}
+
+.route-panel h2 {
+  font: 700 25px "Playfair Display";
+  margin: 10px 0;
+}
+
+.route-step {
+  background: #1c1d22;
+  color: #e8e5dc;
+  border-radius: 16px;
+  padding: 18px;
+  margin: 24px 0;
+}
+
+.route-step b,
+.transport-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #a8a9b0;
+}
+
+.route-step p {
+  font-size: 13px;
+  color: #eee;
+  margin: 12px 0 0;
+}
+
+.transport-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.route-panel select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: #1c1d22;
+  color: white;
+  border: 1px solid #c98a63;
+  font: inherit;
+}
+
+.route-result {
+  background: #f4e6df;
+  color: #67483d;
+  border-radius: 15px;
+  padding: 17px;
+  margin: 15px 0;
+  font-weight: 700;
+}
+
+.route-result small {
+  display: block;
+  color: #977c70;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+.route-panel .primary {
+  width: 100%;
+}
+
+.modal {
+  background: var(--paper);
+  color: var(--ink);
+  width: min(430px, 100%);
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.modal h2 {
+  font: 700 25px "Playfair Display";
+  margin: 5px 0 8px;
+}
+
+.modal p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--ink);
+  margin: 7px 0;
+  font: inherit;
+}
+
+.modal .primary {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.map-view {
+  height: 610px;
+  grid-column: 1 / -1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: "DM Sans", sans-serif;
+}
+
+.site-footer {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  margin-top: 60px;
+}
+
+.site-footer .footer-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 16px 32px;
+  display: grid;
+  grid-template-columns: 1fr 220px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-brand .brand {
+  font: 800 23px Georgia;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-brand .brand span {
+  color: #39814c;
+}
+
+.footer-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 260px;
+}
+
+.footer-nav h4 {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.7px;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin: 0 0 10px;
+}
+
+.footer-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-nav a:hover {
+  color: var(--green);
+}
+
+.footer-info {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.footer-info p {
+  margin: 0 0 8px;
+}
+
+.dark .hero {
+  background-image: linear-gradient(
+      90deg,
+      #181a16 0%,
+      #181a16ed 35%,
+      #181a1699 67%,
+      #181a1640
+    ),
+    url("https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1800&q=85");
+}
+
+.dark .hero h1 {
+  color: #eee;
+}
+
+.dark .quick button {
+  background: #282a25;
+  color: #ddd;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 190px 1fr;
+    gap: 15px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topbar {
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  .quick {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    height: auto;
+    min-height: 65px;
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  .brand {
+    margin-right: auto;
+  }
+
+  .search {
+    order: 5;
+    flex-basis: 100%;
+  }
+
+  .ai-btn {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .hero {
+    min-height: 370px;
+  }
+
+  .hero-content {
+    padding: 34px 20px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+  }
+
+  .hero-sub br {
+    display: none;
+  }
+
+  .quick {
+    flex-wrap: wrap;
+    margin-top: 22px;
+  }
+
+  .content {
+    display: block;
+    margin: 15px 12px;
+  }
+
+  .filters {
+    position: static;
+    margin-bottom: 18px;
+  }
+
+  .results-head {
+    align-items: start;
+    gap: 10px;
+  }
+
+  .results-head h2 {
+    font-size: 17px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    height: 190px;
+  }
+
+  .filters .category-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .route-modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 45% 55%;
+    height: 90vh;
+  }
+
+  .route-panel {
+    padding: 20px;
+  }
+
+  .detail-image {
+    height: 190px;
+  }
+
+  .detail-body {
+    padding: 22px;
+  }
+
+  .detail-body h2 {
+    font-size: 25px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .stats div:nth-child(3) {
+    border-left: 0;
+  }
+
+  .detail-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .map-view {
+    height: 500px;
+  }
+
+  .site-footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 16px 24px;
+  }
+
+  .footer-nav,
+  .footer-info {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+}

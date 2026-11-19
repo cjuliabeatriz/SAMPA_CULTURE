@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SampaCult — Cultura e experiências</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brandmark" href="#">◉</a>
+      <a class="brand" href="#">Sampa<span>Cult</span></a>
+      <label class="search">
+        <span>⌕</span>
+        <input id="search" placeholder="Busque por lugar, artista ou palavra-chave">
+      </label>
+      <button class="ai-btn" id="aiOpen">✣ &nbsp;Roteiro com IA</button>
+      <button class="user-btn" id="userOpen" aria-label="Entrar">♙</button>
+      <button class="moon" id="themeToggle">☾</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">SÃO PAULO • CULTURA E EXPERIÊNCIAS</p>
+          <h1>Descubra a São Paulo que<br> combina com <em>seu tempo,<br> bolso e localização.</em></h1>
+          <p class="hero-sub">Do centro histórico às pequenas galerias: encontre experiências que fazem<br class="desktop"> sentido para você — e para a cidade.</p>
+          <div class="quick">
+            <button data-quick="free">♧ &nbsp;Gratuitos hoje</button>
+            <button data-quick="hidden">✧ &nbsp;Gemas escondidas</button>
+            <button data-quick="near">➤ &nbsp;Perto de mim</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="content">
+        <aside class="filters">
+          <div class="filter-head">
+            <b>◎ &nbsp;Explorar</b>
+            <button id="clear">Limpar filtros</button>
+          </div>
+          <div class="filter-group">
+            <h4>REGIÃO / ZONA</h4>
+            <select id="region">
+              <option value="">⌖ Todas as regiões</option>
+              <option>Centro</option>
+              <option>Bela Vista</option>
+              <option>Pinheiros</option>
+              <option>Liberdade</option>
+              <option>Ibirapuera</option>
+              <option>Vila Madalena</option>
+            </select>
+            <small>Filtre por região para ver somente os lugares daquela área.</small>
+          </div>
+          <div class="filter-group">
+            <h4>CATEGORIA</h4>
+            <div id="categories" class="category-list"></div>
+            <button class="more" id="moreCats">＋ Ver Mais</button>
+          </div>
+          <div class="filter-group">
+            <div class="price-head">
+              <h4>FAIXA DE PREÇO</h4>
+              <b id="priceLabel">R$ 300+</b>
+            </div>
+            <input id="price" type="range" min="0" max="300" value="300">
+            <div class="range-label">
+              <small>Grátis</small>
+              <small>R$ 300+</small>
+            </div>
+          </div>
+          <div class="filter-group toggle-line">
+            <span>Gemas escondidas</span>
+            <label class="switch">
+              <input id="hiddenOnly" type="checkbox">
+              <i></i>
+            </label>
+          </div>
+          <div class="filter-group toggle-line">
+            <span>Mostrar apenas favoritos</span>
+            <label class="switch">
+              <input id="favoritesOnly" type="checkbox">
+              <i></i>
+            </label>
+          </div>
+        </aside>
+
+        <section class="results">
+          <div class="results-head">
+            <div>
+              <h2 id="resultTitle">Para você em São Paulo <span class="count" id="count">12 lugares</span></h2>
+              <p>Atualizado hoje · experiências para descobrir</p>
+            </div>
+            <div class="view-toggle">
+              <button class="active" id="gridBtn">Grade</button>
+              <button id="mapBtn">♧ Mapa</button>
+            </div>
+          </div>
+          <div class="cards" id="cards"></div>
+          <div class="pagination">Explore São Paulo no seu ritmo ✨</div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a class="brand" href="#">Sampa<span>Cult</span></a>
+          <p class="footer-desc">Cultura e experiências em São Paulo.</p>
+        </div>
+        <nav class="footer-nav">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="#">Todos os lugares</a></li>
+            <li><a href="#">Gratuitos hoje</a></li>
+            <li><a href="#">Gemas escondidas</a></li>
+          </ul>
+        </nav>
+        <div class="footer-info">
+          <p>São Paulo, SP · Brasil</p>
+          <p>&copy; SampaCult. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" id="detailModal">
+      <section class="detail-modal">
+        <button class="close" data-close="detailModal">×</button>
+        <div id="detailContent"></div>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="routeModal">
+      <section class="route-modal">
+        <button class="close" data-close="routeModal">×</button>
+        <div class="route-map" id="routeMap"></div>
+        <div class="route-panel">
+          <p class="eyebrow">ROTA ATÉ O LOCAL</p>
+          <h2 id="routeTitle">Como chegar</h2>
+          <p class="muted">Escolha como deseja chegar ao destino.</p>
+          <div class="route-step">
+            <b>TRECHO DO ROTEIRO</b>
+            <p id="routeFrom">Origem — Sua localização</p>
+            <p id="routeTo">Destino — São Paulo</p>
+          </div>
+          <label class="transport-label" for="transport">COMO VOCÊ QUER IR?</label>
+          <select id="transport">
+            <option value="walk">🚶 A pé</option>
+            <option value="bus">🚌 Ônibus</option>
+            <option value="car">🚗 Carro</option>
+            <option value="moto">🏍️ Moto</option>
+            <option value="bike">🚲 Bicicleta, skate e outros meios</option>
+          </select>
+          <div class="route-result" id="routeResult"></div>
+          <button class="primary" id="openMaps">Abrir rota no Google Maps ↗</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal-backdrop" id="genericModal">
+      <section class="modal">
+        <button class="close" data-close="genericModal">×</button>
+        <div id="genericContent"></div>
+      </section>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv4F0_Qq8YD_3-6CFiQVZXRjWMexLKNuo"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
